@@ -14,7 +14,7 @@ from pathlib import Path
 
 ANONYMOUS_USER_ID = 1
 DELETED_USER_ID = 2
-
+DEFAULT_USERS_ID_ARRAY = [ANONYMOUS_USER_ID, DELETED_USER_ID]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
