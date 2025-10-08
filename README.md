@@ -30,20 +30,20 @@ In the spirit of traditional imageboards, users can use anonymous profiles to ma
 
 ## Planned API Endpoints
 
-| Method | Endpoint | Description | Body |
-|--------|-----------|-------------| ---- |
-| `POST` | `/register` | Create a new user profile | username, password, email |
-| `POST` | `/login` | Sign in your user profile | email, password |  |
-| `GET` | `/profiles/:username` | View user profile information |  |
-| `GET` | `/profiles/search` | Search for a user | username |
-| `GET` | `/:board_name` | Retrieve all threads in a board |  |
-| `GET` | `/:board_name/:page` | Retrieve all threads in a board on a select page |  |
-| `POST` | `/:board_name/makethread` | Create a new thread | name, contents |
-| `GET` | `/:board_name/:thread_name` | View a thread and its comments |  |
-| `POST` | `/:board_name/:thread_name` | Add a comment | contents |
-| `GET` | `/:board_name/:thread_name/:page` | View select comment page |  |
-| `GET` | `/:board_name/search` | Search thread titles | title |
-| `GET` | `/:board_name/:thread_name/search` | Search thread comments | string |
+| Method | Endpoint | Description | Body | response |
+|--------|-----------|-------------| ---- |---------|
+| `POST` | `/register` | Create a new user profile | username, password, email | 201, created |
+| `POST` | `/login` | Sign in your user profile | email, password |  | 202, probably token |
+| `GET` | `/profiles/:username` | View user profile information |  | 200, user information or 204 if nothing found |
+| `GET` | `/profiles/search` | Search for a user | username | 200 or 204 |
+| `GET` | `/boards/:board_name` | Retrieve all threads in a board |  | 200 |
+| `GET` | `/boards/:board_name/:page` | Retrieve all threads in a board on a select page |  | 200 |
+| `POST` | `/boards/:board_name/makethread` | Create a new thread | name, contents | 200 |
+| `GET` | `/boards/:board_name/threads/:thread_name` | View a thread and its comments |  | 200 |
+| `POST` | `/boards/:board_name/threads/:thread_name` | Add a comment | contents | 201 |
+| `GET` | `/boards/:board_name/threads/:thread_name/:page` | View select comment page |  | 200 |
+| `GET` | `/boards/:board_name/search` | Search thread titles | title | 200 or 204 |
+| `GET` | `/boards/:board_name/threads/:thread_name/search` | Search thread comments | string | 200 or 204 |
 
 ---
 
