@@ -12,3 +12,9 @@ class BoardsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Boards
         fields = ['board_name']
+
+
+class ThreadsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Threads
+        fields = ['name', 'time_of_creation', 'author_id']

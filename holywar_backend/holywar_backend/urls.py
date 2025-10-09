@@ -20,6 +20,9 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.user_dump, name='dump'),
-    path('boards/', views.get_boards, name='boards'),
+    path('boards/<str:url_board>/<int:url_board_page>/',
+         views.ThreadList.as_view()),
+    path('boards/<str:url_board>/', views.ThreadList.as_view()),
+    path('boards/', views.ListBoards.as_view(), name='boards'),
+    path('', views.HomePage.as_view(), name='dump'),
 ]
