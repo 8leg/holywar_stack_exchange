@@ -14,8 +14,9 @@ class Boards(models.Model):
 class Users(models.Model):
     username = models.CharField(max_length=30, unique=True)
     access_level = models.CharField(max_length=10, default='user')
-    # it is up to view layer to detect if there is no email. Null is reserved for system users
-    email = models.EmailField(unique=True, blank=True, null=True, default=None)
+    # it is up to view layer to detect if email is unique.
+    # No-reply is reserved for system users
+    email = models.EmailField()
     passwd = models.CharField(max_length=256)
 
 

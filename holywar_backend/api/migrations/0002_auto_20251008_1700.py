@@ -11,7 +11,8 @@ def add_default_users(apps, schema_editor):
     Users.objects.create(
         id=settings.ANONYMOUS_USER_ID,
         username='Anonymous',
-        email='',
+        access_level='user',
+        email='noreply@gmail.com',
         # okay so I didn't know how to make an unusable user hash so I asked
         # LLM and it told me one-char hash won't pass the test, so I guess I gotta trust em
         # cause I'm scared to use another lib
@@ -20,7 +21,8 @@ def add_default_users(apps, schema_editor):
     Users.objects.create(
         id=settings.DELETED_USER_ID,
         username='Deleted',
-        email='',
+        access_level='user',
+        email='noreply@gmail.com',
         # okay so I didn't know how to make an unusable user hash so I asked
         # LLM and it told me one-char hash won't pass the test, so I guess I gotta trust em cause I'm scared to use another lib
         passwd='!',
